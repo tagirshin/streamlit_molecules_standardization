@@ -29,9 +29,9 @@ def standardization_step(molecule, index, std_log, mistakes_log):
             std_log['implicify hydrogens'] += int(h)
             t = tmp_molecule.thiele()
             std_log['aromatization'] += int(t and not k)
-            c = tmp_molecule.standardize_charges(prepare_molecule=False)
-            std_log['charges'] += int(c)
-            standardized = s or h or c or (t and not k)
+            # c = tmp_molecule.standardize_charges(prepare_molecule=False)
+            # std_log['charges'] += int(c)
+            standardized = s or h or (t and not k)  # or c
     except InvalidAromaticRing:
         mistakes_log['indeces'].append(index)
         mistakes_log['mistakes'].append('invalid_aromatic_ring')
