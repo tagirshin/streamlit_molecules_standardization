@@ -1,0 +1,5 @@
+pandas
+plotly
+streamlit
+stqdm
+git+git://github.com/stsouko/CGRtools.git@master#egg=CGRtools
