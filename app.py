@@ -89,7 +89,7 @@ text = 'This app uses [CGRtools package](https://github.com/stsouko/CGRtools) to
        'It takes *SDF* or *SMILES* input files, checks their structure on valence and aromatic ring errors and ' \
        'applies standardization rules in the folowing order:  \n1. Convertation of molecule to the kekule form  \n' \
        '2. Standardization of functional groups  \n3. Hidding of explicit hydrogens  \n' \
-       '4. Convertation of molecule to the aromatic (thiele) form  \n5. Standardization of charges  \n  \n' \
+       '4. Convertation of molecule to the aromatic (thiele) form  \n  \n' \
        'For additional information, please, refer to the [package documentation]' \
        '(https://cgrtools.readthedocs.io/tutorial/3_standardization.html)'
 
@@ -102,7 +102,7 @@ smiles_input = st.text_area("Input SMILES, multiple should be divided by semicol
 if st.button('Standardize molecules'):
     with st.spinner(text='Running standardization'):
         std_mistakes = {'indeces': [], 'mistakes': []}
-        applied_rules_count = {'functional group': 0, 'implicify hydrogens': 0, 'aromatization': 0, 'charges': 0}
+        applied_rules_count = {'functional group': 0, 'implicify hydrogens': 0, 'aromatization': 0}
         example_flag = True
         num_std_mols = 0
 
@@ -176,7 +176,7 @@ if st.button('Standardize molecules'):
                     unsafe_allow_html=True)
         st.subheader('Standardization statisitcs')
 
-        col1, col2 = st.beta_columns(2)
+        col1, col2 = st.columns(2)
         with col1:
             if std_mistakes['mistakes']:
                 df_mistakes = pd.DataFrame(std_mistakes)
@@ -209,7 +209,7 @@ if st.button('Standardize molecules'):
             st.plotly_chart(rules_chart, use_container_width=True)
 
         st.subheader('Example of standardization')
-        col3, col4 = st.beta_columns(2)
+        col3, col4 = st.columns(2)
         with col3:
             st.write('Input molecule')
             st.write(render_svg(example[0].depict()), unsafe_allow_html=True)

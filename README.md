@@ -8,7 +8,6 @@ applies standardization rules in the folowing order:
 2. Standardization of functional groups
 3. Hidding of explicit hydrogens
 4. Convertation of molecule to the aromatic (thiele) form
-5. Standardization of charges
 
 For additional information, 
 please, refer to the [CGRtools documentation](https://cgrtools.readthedocs.io/tutorial/3_standardization.html).
